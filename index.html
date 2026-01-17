@@ -1,152 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Homework Helper</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    body {
-      margin: 0;
-      background: linear-gradient(135deg, #6c7cff, #9aa6ff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .container {
-      background: #ffffff;
-      width: 100%;
-      max-width: 420px;
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-      text-align: center;
-      animation: fadeIn 0.8s ease;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    h1 {
-      margin-bottom: 8px;
-      font-size: 28px;
-      color: #222;
-    }
-
-    p {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 25px;
-    }
-
-    .upload-box {
-      border: 2px dashed #6c7cff;
-      border-radius: 14px;
-      padding: 35px 20px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      background: #fafbff;
-    }
-
-    .upload-box:hover {
-      background: #eef0ff;
-      transform: scale(1.02);
-    }
-
-    .upload-box input {
-      display: none;
-    }
-
-    .upload-box label {
-      display: block;
-      color: #6c7cff;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .button {
-      margin-top: 25px;
-      background: linear-gradient(135deg, #6c7cff, #5a68e5);
-      color: white;
-      border: none;
-      padding: 14px 20px;
-      font-size: 16px;
-      border-radius: 12px;
-      cursor: pointer;
-      width: 100%;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 10px 20px rgba(108, 124, 255, 0.4);
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 26px rgba(108, 124, 255, 0.5);
-    }
-
-    .button:active {
-      transform: translateY(0);
-      box-shadow: 0 8px 16px rgba(108, 124, 255, 0.4);
-    }
-
-    .note {
-      margin-top: 15px;
-      font-size: 12px;
-      color: #999;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homework Helper Free AI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Homework Helper</h1>
-    <p>Upload a photo of your homework and get it done</p>
+    <h1>Homework Helper Free AI</h1>
+    <p>Upload your homework photo and see AI answers!</p>
 
     <div class="upload-box">
-      <input type="file" id="photo" accept="image/*" />
+      <input type="file" id="photo" accept="image/*">
       <label for="photo">Click to upload homework photo</label>
     </div>
 
-    <button class="button">Do My Homework</button>
+    <button class="button" id="solveBtn">Do My Homework</button>
 
     <div class="note">
-      * This is a design only (HTML & CSS)
+      * Demo only — uses free AI chat embed
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <!-- Embed Free AI Chat tool via iframe -->
+    <h2>AI Chat Widget (Free)</h2>
+    <div class="ai-widget">
+      <iframe src="https://aiforfree.online/tools/chat" width="100%" height="500px" style="border:1px solid #ccc;"></iframe>
     </div>
   </div>
-  <script>
-    const input = document.getElementById('photo');
-    const button = document.querySelector('.button');
 
-    const result = document.createElement('div');
-    result.style.marginTop = '20px';
-    result.style.fontSize = '14px';
-    result.style.color = '#333';
-    document.querySelector('.container').appendChild(result);
-
-    button.addEventListener('click', () => {
-      if (!input.files.length) {
-        alert('Please upload a homework photo first');
-        return;
-      }
-
-      result.innerHTML = '⏳ Analyzing homework photo...';
-
-      setTimeout(() => {
-        result.innerHTML = '✅ Homework completed!<br><br><strong>Example Answer:</strong><br>1) Solve the equation<br>2) Show your steps<br>3) Final answer provided';
-      }, 2000);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
+
